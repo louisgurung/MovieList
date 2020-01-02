@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import PropTypes from "prop-types";
 
+//takes the itemcount, pagesize, currentpage(set to 1 at first), and handles on page change
 const Pagination = props => {
   const { itemsCount, pageSize, onPageChange, currentPage } = props;
 
