@@ -8,7 +8,7 @@ const Pagination = props => {
 
   const pagesCount = Math.ceil(itemsCount / pageSize);
   if (pagesCount === 1) return null;
-  const pages = _.range(1, pagesCount + 1);
+  const pages = _.range(1, pagesCount + 1); //from lodash to return array of pages
   return (
     <nav>
       <ul className="pagination">
