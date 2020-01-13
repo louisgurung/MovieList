@@ -6,6 +6,7 @@ import { paginate } from "../utils/paginate";
 import ListGroup from "./common/listGroup";
 import MoviesTable from "./moviesTable";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 class Movies extends Component {
   state = {
     movies: [],
@@ -45,6 +46,11 @@ class Movies extends Component {
     this.setState({ sortColumn });
   };
 
+  openNewMovieForm = () => {
+    let path = "/movies/new";
+    this.props.history.push(path);
+  };
+
   getPagedData = () => {
     const {
       pageSize,
@@ -82,7 +88,21 @@ class Movies extends Component {
             onItemSelect={this.handleGenreSelect}
           />
         </div>
+
         <div className="col">
+          {/* <button
+            className="btn btn-primary m-2"
+            onClick={this.openNewMovieForm}
+          >
+            New Movie
+          </button> */}
+          <Link
+            to="/movies/new"
+            className="btn btn-primary"
+            style={{ marginBottom: 20 }}
+          >
+            New Movie
+          </Link>
           <h3>Showing {totalCount} movies in the database</h3>
           <MoviesTable
             movies={movies}
